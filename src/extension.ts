@@ -27,12 +27,12 @@ export async function activate(context: vscode.ExtensionContext) {
 	});
 
 	vscode.commands.registerCommand('course.listAssignment', async (course: Course) => {
-		const assignments = await getAssignmentList(course.id_);
+		const assignments = await getAssignmentList(course.courseId);
 		assignmentsProvider.refresh(assignments);
 	});
 
 	vscode.commands.registerCommand('assignment.displayAssignmentPage', async (assignment: Assignment) => {
-		displayAssignmentPage(assignment);
+		displayAssignmentPage(assignment, context.extensionUri);
 	});
 }
 

@@ -29,12 +29,14 @@ export class AssignmentsProvider implements vscode.TreeDataProvider<Assignment> 
 export class Assignment extends vscode.TreeItem {
     constructor(
         public readonly label: string,
-        public readonly id_: number,
+        public readonly assignmentId: number,
+        public readonly courseId: number,
         public readonly html: string,
         public readonly dueAt: string,
         public readonly pointsPossible: number,
         public readonly submissionTypes: string[],
         public readonly published: boolean,
+        public submissions: vscode.Uri[],
         public readonly collapsibleState: vscode.TreeItemCollapsibleState
     ) {
         super(label, collapsibleState);

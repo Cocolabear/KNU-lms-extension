@@ -28,11 +28,13 @@ export async function getAssignmentList(courseId: number): Promise<Assignment[]>
         return data.map((assignment: any) => new Assignment(
             assignment.name || "empty",
             assignment.id || 0,
+            courseId,
             assignment.description || "",
             assignment.due_at || "",
             assignment.points_possible || 0,
             assignment.submission_types || [],
             assignment.published || false,
+            [],
             vscode.TreeItemCollapsibleState.None
         ));
     } catch (error: any) {
